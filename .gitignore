@@ -5,6 +5,13 @@
 # Python
 __pycache__/
 *.pyc
+venv/
+.venv/
+dist/
+*.egg-info/
 
-# Model files (too large, download separately—see 使用说明.txt)
+# Temp files
+*.wav
+
+# Model files (too large, download separately — see README.md)
 model.bin

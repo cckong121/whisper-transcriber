@@ -9,7 +9,7 @@ echo "================================================"
 echo ""
 
 # ── 检查 Python ──────────────────────────────────
-echo "[1/3] 检查 Python..."
+echo "[1/4] 检查 Python..."
 if command -v python3 &>/dev/null; then
     python3 --version
     echo "  OK"
@@ -21,7 +21,7 @@ fi
 
 # ── 检查 pip ─────────────────────────────────────
 echo ""
-echo "[2/3] 检查 pip..."
+echo "[2/4] 检查 pip..."
 if python3 -m pip --version &>/dev/null; then
     python3 -m pip --version
     echo "  OK"
@@ -32,7 +32,7 @@ fi
 
 # ── 检查 ffmpeg ──────────────────────────────────
 echo ""
-echo "[3/3] 检查 ffmpeg..."
+echo "[3/4] 检查 ffmpeg..."
 if command -v ffmpeg &>/dev/null; then
     ffmpeg -version | head -1
     echo "  OK"
@@ -50,7 +50,7 @@ fi
 
 # ── 安装 Python 依赖 ──────────────────────────────
 echo ""
-echo "正在安装 Python 依赖包..."
+echo "[4/4] 安装 Python 依赖包..."
 python3 -m pip install --user faster-whisper torch
 
 # ── 检查 tkinter ─────────────────────────────────
@@ -59,14 +59,28 @@ echo "检查 tkinter..."
 if python3 -c "import tkinter" &>/dev/null; then
     echo "  tkinter OK"
 else
-    echo "  [提示] 缺少 tkinter，Mac 上可能需要:"
-    echo "    brew install python-tk@3.12 (或与你 python3 版本对应)"
+    echo "  [提示] 缺少 tkinter，可能需要安装:"
+    echo "    brew install python-tk"
     echo "  如果仅使用命令行模式可忽略此提示"
+fi
+
+# ── 检查模型文件 ─────────────────────────────────
+echo ""
+if [ -f "models/model.bin" ]; then
+    echo "模型文件已就绪"
+else
+    echo "[!] 警告：模型文件尚未放入 models/ 目录"
+    echo ""
+    echo "请按以下步骤下载模型:"
+    echo "  1. 浏览器打开 https://hf-mirror.com/Systran/faster-whisper-medium/tree/main"
+    echo "  2. 下载所有文件（至少需要 config.json 和 model.bin）"
+    echo "  3. 放入此目录下的 models/ 文件夹"
+    echo "  4. 再次运行 bash transcribe.sh"
+    echo ""
 fi
 
 echo ""
 echo "================================================"
 echo "  环境安装完成！"
-echo "  双击 transcribe.command 或在终端运行:"
-echo "    bash transcribe.sh"
+echo "  终端运行 bash transcribe.sh 开始转录"
 echo "================================================"
