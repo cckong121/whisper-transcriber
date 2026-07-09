@@ -74,14 +74,14 @@ echo   OK
 echo.
 echo [4/4] 检查模型文件...
 
-if not exist "%~dp0models\model.bin" (
+if not exist "%~dp0..\models\model.bin" (
     echo   [!] 警告：模型文件尚未放入 models\ 目录
     echo.
     echo   请按以下步骤下载模型:
     echo     1. 浏览器打开 https://hf-mirror.com/Systran/faster-whisper-medium/tree/main
     echo     2. 下载所有文件（至少需要 config.json 和 model.bin）
     echo     3. 放入此目录下的 models\ 文件夹
-    echo     4. 再次运行 transcribe.bat
+    echo     4. 再次运行 scripts\transcribe.bat
     echo.
 ) else (
     echo   模型文件已就绪
@@ -91,6 +91,6 @@ if not exist "%~dp0models\model.bin" (
 echo.
 echo ================================================
 echo   环境安装完成!
-echo   可以双击 transcribe.bat 开始转录
+echo   可以双击 scripts\transcribe.bat 开始转录
 echo ================================================
 pause

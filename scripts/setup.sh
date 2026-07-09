@@ -66,7 +66,7 @@ fi
 
 # ── 检查模型文件 ─────────────────────────────────
 echo ""
-if [ -f "models/model.bin" ]; then
+if [ -f "../models/model.bin" ]; then
     echo "模型文件已就绪"
 else
     echo "[!] 警告：模型文件尚未放入 models/ 目录"
@@ -75,12 +75,12 @@ else
     echo "  1. 浏览器打开 https://hf-mirror.com/Systran/faster-whisper-medium/tree/main"
     echo "  2. 下载所有文件（至少需要 config.json 和 model.bin）"
     echo "  3. 放入此目录下的 models/ 文件夹"
-    echo "  4. 再次运行 bash transcribe.sh"
+    echo "  4. 再次运行 bash scripts/transcribe.sh"
     echo ""
 fi
 
 echo ""
 echo "================================================"
 echo "  环境安装完成！"
-echo "  终端运行 bash transcribe.sh 开始转录"
+echo "  终端运行 bash scripts/transcribe.sh 开始转录"
 echo "================================================"

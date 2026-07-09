@@ -42,12 +42,12 @@ models/
 
 **Windows:**
 ```
-Double-click setup.bat
+Double-click scripts\setup.bat
 ```
 
 **macOS:**
 ```bash
-bash setup.sh
+bash scripts/setup.sh
 ```
 
 Or manually:
@@ -58,11 +58,11 @@ pip install -r requirements.txt
 
 ### 3. Run
 
-**Windows:** Double-click `transcribe.bat`
+**Windows:** Double-click `scripts\transcribe.bat`
 
 **macOS:**
 ```bash
-bash transcribe.sh
+bash scripts/transcribe.sh
 # or: python3 transcribe.py
 ```
 
@@ -72,16 +72,18 @@ A dialog will prompt you to select a folder (batch process) or individual files.
 
 ```
 whisper-transcriber/
-  ├── models/            # Model files (download separately)
+  ├── models/               # Model files (download separately)
   │   ├── config.json
-  │   ├── model.bin      # Excluded from git (too large)
+  │   ├── model.bin         # Excluded from git (too large)
   │   ├── tokenizer.json
   │   └── vocabulary.txt
-  ├── transcribe.py      # Core transcription script
-  ├── setup.bat / .sh    # Environment setup (Windows / macOS)
-  ├── transcribe.bat / .sh  # Launcher (Windows / macOS)
-  ├── requirements.txt   # Python dependencies
-  └── 使用说明.txt        # Chinese manual
+  ├── scripts/              # OS launchers & setup
+  │   ├── setup.bat / .sh
+  │   └── transcribe.bat / .sh
+  ├── transcribe.py         # Core transcription script
+  ├── requirements.txt      # Python dependencies
+  ├── README.md             # English docs
+  └── README.zh-CN.md       # Chinese docs
 ```
 
 ## Performance

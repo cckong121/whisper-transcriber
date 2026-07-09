@@ -22,13 +22,13 @@
 
 **第二步：安装环境**
 
-- Windows：双击 `setup.bat`
-- Mac：终端运行 `bash setup.sh`
+- Windows：双击 `scripts\setup.bat`
+- Mac：终端运行 `bash scripts/setup.sh`
 
 **第三步：启动转录**
 
-- Windows：双击 `transcribe.bat`
-- Mac：终端运行 `bash transcribe.sh`
+- Windows：双击 `scripts\transcribe.bat`
+- Mac：终端运行 `bash scripts/transcribe.sh`
 
 弹窗选择文件夹（处理整个文件夹）或手动多选文件，结果保存为同目录下同名 .txt。
 
@@ -37,7 +37,7 @@
 - **提示未找到 ffmpeg**：运行 setup 脚本自动安装，或手动从 [ffmpeg.org](https://ffmpeg.org) 下载
 - **模型文件缺失**：检查 `models/` 下是否有 `model.bin` 和 `config.json`
 - **想换模型**：替换 `models/` 下的文件即可，支持 small / medium / large-v3
-- **Mac 上无法双击 .sh**：在终端中 `cd` 到目录后运行 `bash setup.sh` 或 `bash transcribe.sh`
+- **Mac 上无法双击 .sh**：在终端中 `cd` 到目录后运行 `bash scripts/setup.sh` 或 `bash scripts/transcribe.sh`
 
 ### 许可
 

@@ -4,8 +4,8 @@
 # 或双击 transcribe.command
 set -e
 
-# 切换到脚本所在目录
-cd "$(dirname "$0")"
+# 切换到项目根目录
+cd "$(dirname "$0")/.."
 
 echo "正在启动转录工具..."
 python3 transcribe.py
