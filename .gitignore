@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+._*
+
+# Python
+__pycache__/
+*.pyc
+
+# Model files (too large, download separately—see 使用说明.txt)
+model.bin

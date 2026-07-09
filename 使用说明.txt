@@ -1,0 +1,69 @@
+═══════════════════════════════════════════════════
+    批量视频/音频转文字工具 — 使用说明
+    powered by faster-whisper (medium)
+    支持 Windows / macOS
+═══════════════════════════════════════════════════
+
+【第一步：下载模型文件（U盘制作方操作，只需做一次）】
+
+  浏览器打开：
+  https://hf-mirror.com/Systran/faster-whisper-medium/tree/main
+
+  把页面上所有文件下载下来，放到本目录下的 models/ 文件夹里。
+  至少需要这两个文件：
+    - config.json
+    - model.bin（约1.5GB，下载最耗时）
+
+  确认 models/model.bin 存在后，这个U盘就可以拿给接收方使用了。
+
+【第二步：接收方拿到U盘后】
+
+  1. 把U盘里整个 "whisper-transcriber" 文件夹拷贝到电脑上
+     （不要直接在U盘里运行，速度慢）
+
+  2. 安装环境（只需做一次，联网约 5-10 分钟）：
+
+     ● Windows 用户 → 双击 setup.bat
+     ● Mac 用户     → 打开终端，cd 到本目录，运行 bash setup.sh
+                      或双击 setup.command（如果已配置）
+
+     会自动检查/安装：Python、ffmpeg、faster-whisper 等依赖包
+
+  3. 启动转录：
+
+     ● Windows 用户 → 双击 transcribe.bat
+     ● Mac 用户     → 终端中运行 bash transcribe.sh
+                      或双击 transcribe.command（如果已配置）
+
+     弹出对话框 → 选"是"处理整个文件夹，选"否"手动多选文件
+     → 等待转录完成
+     → 结果保存为视频同目录下的同名 .txt 文件
+
+【注意事项】
+
+  - 支持格式：MP4 / MOV / M4V / AVI / MKV / M4A / MP3 / WAV / FLAC / OGG / WMA
+  - 如果目标视频已有同名 .txt，会自动跳过不重复转录
+  - 第一次运行时加载模型需要几秒钟
+  - 如果有 NVIDIA 显卡，会自动用 GPU 加速，速度提升明显
+  - 转录速度参考：10分钟视频约需1-2分钟（CPU）/ <30秒（GPU）
+
+【常见问题】
+
+  Q: 提示"未找到ffmpeg"
+  A: ● Windows → 运行 setup.bat 会自动安装
+     ● Mac     → 运行 bash setup.sh 会自动通过 Homebrew 安装
+
+  Q: 提示"模型文件缺失"
+  A: 检查 models/ 目录下是否有 model.bin 和 config.json
+
+  Q: 转录中文有乱码
+  A: 不会。编码已统一为 UTF-8
+
+  Q: 想用更大/更小的模型？
+  A: 替换 models/ 下的文件即可（medium 是速度与精度的平衡点）：
+     基础模型: Systran/faster-whisper-small（更快，精度稍低）
+     最高精度: Systran/faster-whisper-large-v3（更慢，约3GB）
+
+  Q: Mac 上双击 shell 脚本无法执行
+  A: 打开终端，cd 到本目录，运行 bash setup.sh 或 bash transcribe.sh
+     也可以把 .sh 改名为 .command 后缀，Mac 就会默认用终端打开
